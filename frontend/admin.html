@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Panel de administración | Vuelo y Tradición</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+
+  <header class="navbar">
+    <div class="container nav-content">
+      <a class="logo" href="index.html"><span aria-hidden="true">🪶</span><span class="logo-text">Vuelo y Tradición</span></a>
+      <nav class="nav-links">
+        <a href="index.html">← Ver tienda</a>
+        <button id="logoutBtn" class="btn-link" type="button" hidden>Cerrar sesión</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+
+    <!-- Login -->
+    <section id="loginView" class="panel login-panel" aria-labelledby="loginTitle">
+      <h1 id="loginTitle" class="panel-title">Acceso de administrador</h1>
+      <form id="loginForm" class="stack" novalidate>
+        <label for="loginEmail">Correo</label>
+        <input id="loginEmail" type="email" autocomplete="username" required>
+        <label for="loginPassword">Contraseña</label>
+        <input id="loginPassword" type="password" autocomplete="current-password" required>
+        <p id="loginError" class="form-error" role="alert" hidden></p>
+        <button class="btn-add btn-block" type="submit">Entrar</button>
+      </form>
+    </section>
+
+    <!-- Panel -->
+    <section id="dashView" hidden>
+      <h1 class="panel-title">Panel de administración</h1>
+      <div class="tabs" role="tablist">
+        <button class="tab active" role="tab" data-tab="products" aria-selected="true">Inventario</button>
+        <button class="tab" role="tab" data-tab="artisans" aria-selected="false">Talleres</button>
+      </div>
+      <p id="flash" class="flash" role="status" hidden></p>
+
+      <!-- Inventario -->
+      <div id="tab-products" class="tab-panel">
+        <div class="panel-bar">
+          <input id="productFilter" type="search" placeholder="Filtrar inventario…" aria-label="Filtrar inventario">
+          <button id="newProductBtn" class="btn-add" type="button">+ Nueva pieza</button>
+        </div>
+
+        <form id="productForm" class="panel form-grid" hidden novalidate>
+          <h2 id="productFormTitle" class="form-title">Nueva pieza</h2>
+          <input type="hidden" id="pId">
+          <div><label for="pArtisan">Taller</label><select id="pArtisan" required></select></div>
+          <div><label for="pTitle">Título</label><input id="pTitle" maxlength="150" required></div>
+          <div>
+            <label for="pCategory">Categoría</label>
+            <input id="pCategory" list="categoryList" maxlength="60" required>
+            <datalist id="categoryList"><option>Textiles</option><option>Vainilla</option><option>Bebidas</option><option>Madera</option><option>Alfarería</option></datalist>
+          </div>
+          <div><label for="pPrice">Precio (MXN)</label><input id="pPrice" type="number" min="0.01" step="0.01" required></div>
+          <div><label for="pStock">Existencias</label><input id="pStock" type="number" min="0" step="1" value="1" required></div>
+          <div class="check"><label><input id="pActive" type="checkbox" checked> Visible en la tienda</label></div>
+          <div class="span-2"><label for="pDesc">Descripción</label><textarea id="pDesc" rows="3" maxlength="4000" required></textarea></div>
+          <div class="span-2 photo-field">
+            <label for="pFile">Fotografía (JPG, PNG o WEBP, máx. 5 MB)</label>
+            <input id="pFile" type="file" accept="image/jpeg,image/png,image/webp">
+            <input id="pImage" type="hidden">
+            <img id="pPreview" class="preview" alt="Vista previa" hidden>
+          </div>
+          <p id="productError" class="form-error span-2" role="alert" hidden></p>
+          <div class="span-2 form-actions">
+            <button class="btn-add" type="submit">Guardar pieza</button>
+            <button class="btn-secondary" type="button" data-cancel="product">Cancelar</button>
+          </div>
+        </form>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Foto</th><th>Pieza</th><th>Taller</th><th>Precio</th><th>Stock</th><th>Estado</th><th><span class="sr-only">Acciones</span></th></tr></thead>
+            <tbody id="productRows"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Talleres -->
+      <div id="tab-artisans" class="tab-panel" hidden>
+        <div class="panel-bar">
+          <span class="muted">Los perfiles aparecen en el directorio público.</span>
+          <button id="newArtisanBtn" class="btn-add" type="button">+ Nuevo taller</button>
+        </div>
+
+        <form id="artisanForm" class="panel form-grid" hidden novalidate>
+          <h2 id="artisanFormTitle" class="form-title">Nuevo taller</h2>
+          <input type="hidden" id="aId">
+          <div><label for="aFullName">Nombre del artesano/a</label><input id="aFullName" maxlength="150" required></div>
+          <div><label for="aWorkshop">Nombre del taller</label><input id="aWorkshop" maxlength="150" required></div>
+          <div><label for="aCommunity">Comunidad</label><input id="aCommunity" maxlength="100" placeholder="Ej. Papantla, Veracruz" required></div>
+          <div><label for="aPhone">WhatsApp (con lada)</label><input id="aPhone" inputmode="tel" placeholder="784 123 4567" required></div>
+          <div class="span-2"><label for="aBio">Historia / descripción del taller</label><textarea id="aBio" rows="3" maxlength="2000"></textarea></div>
+          <div class="span-2 photo-field">
+            <label for="aFile">Fotografía de perfil</label>
+            <input id="aFile" type="file" accept="image/jpeg,image/png,image/webp">
+            <input id="aImage" type="hidden">
+            <img id="aPreview" class="preview" alt="Vista previa" hidden>
+          </div>
+          <p id="artisanError" class="form-error span-2" role="alert" hidden></p>
+          <div class="span-2 form-actions">
+            <button class="btn-add" type="submit">Guardar taller</button>
+            <button class="btn-secondary" type="button" data-cancel="artisan">Cancelar</button>
+          </div>
+        </form>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Foto</th><th>Taller</th><th>Artesano/a</th><th>Comunidad</th><th>WhatsApp</th><th>Piezas</th><th><span class="sr-only">Acciones</span></th></tr></thead>
+            <tbody id="artisanRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

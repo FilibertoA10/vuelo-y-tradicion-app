@@ -1,0 +1,20 @@
+# Secretos y entorno
+.env
+*.env.local
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Fotos subidas en desarrollo (se conserva la carpeta)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Editor / sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

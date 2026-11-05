@@ -1,0 +1,477 @@
+/* ==========================================
+   VARIABLES, PALETA Y RESET BASE 
+   ========================================== */
+:root {
+    --bg-primary: #FAF6F0;       /* Tono crema muy suave y cálido */
+    --bg-white: #FFFFFF;
+    --text-dark: #2C1E15;        /* Marrón muy oscuro natural */
+    --text-muted: #5E5045;       /* Marrón intermedio */
+    --accent: #D97736;           /* Terracota/naranja vibrante */
+    --accent-light: #F7EFE5;     /* Tono crema anaranjado */
+    --wa-green: #25D366;         /* Verde para WhatsApp */
+    --transition-natural: 0.25s cubic-bezier(0.32, 0.72, 0, 1); /* Curva ágil */
+    --shadow-soft: 0 4px 20px rgba(44, 30, 21, 0.05);
+    --shadow-hover: 0 12px 30px rgba(44, 30, 21, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ==========================================
+   ENCABEZADO (BANNER Y COMPONENTES WEB) 
+   ========================================== */
+.hero-header {
+    width: 100%;
+   background: url('Banner-principal.jpeg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    aspect-ratio: 21 / 9;
+    min-height: 280px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(44, 30, 21, 0.15) 0%, rgba(44, 30, 21, 0) 40%);
+}
+
+.hero-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 2% 5%;
+    position: relative;
+}
+
+/* Contenedor absoluto en el espacio libre del banner (Arriba a la derecha) */
+.search-nav-container {
+    position: absolute;
+    top: 6%;
+    right: 5%;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    width: 48%; /* Ocupa el espacio reservado del lado derecho */
+    max-width: 600px;
+}
+
+.search-form {
+    flex-grow: 1;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 99px;
+    padding: 4px 6px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: var(--transition-natural);
+    border: 1.5px solid transparent;
+}
+
+.search-wrapper:focus-within {
+    transform: scale(1.02);
+    border-color: var(--accent);
+    background: #FFFFFF;
+}
+
+.search-wrapper input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 10px 16px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    outline: none;
+}
+
+.search-submit {
+    border: none;
+    background: var(--accent);
+    color: white;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-natural);
+}
+
+.search-submit:hover {
+    background: #B85F25;
+}
+
+/* Botón de pedido / Carrito */
+.cart-button {
+    border: none;
+    background: var(--text-dark);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 99px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(44, 30, 21, 0.15);
+    transition: var(--transition-natural);
+}
+
+.cart-button:hover {
+    transform: scale(1.04);
+}
+
+.cart-button:active {
+    transform: scale(0.96); /* Micro-interacción de compresión de Emil Kowalski */
+}
+
+.cart-badge {
+    background: var(--accent);
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 99px;
+}
+
+/* ==========================================
+   SECCIONES DE ENCABEZADO 
+   ========================================== */
+.section-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 3rem auto;
+    padding: 0 1rem;
+}
+
+.section-subtitle {
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
+}
+
+.section-header p {
+    color: var(--text-muted);
+}
+
+/* ==========================================
+   DIRECTORIO DE ARTESANOS 
+   ========================================== */
+.artesanos-section {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 5%;
+}
+
+.artesanos-carousel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.artesano-card {
+    background: var(--bg-white);
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem 2rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(217, 119, 54, 0.08);
+    transition: var(--transition-natural);
+    position: relative;
+    overflow: hidden;
+}
+
+.artesano-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.artesano-img-wrapper {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 50%;
+    padding: 5px;
+    border: 2px dashed var(--accent);
+}
+
+.artesano-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.artesano-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.artesano-card .especialidad {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+}
+
+.artesano-card .comunidad {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+.ver-piezas-btn {
+    display: inline-block;
+    padding: 8px 24px;
+    border-radius: 99px;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition-natural);
+}
+
+.ver-piezas-btn:hover {
+    background: var(--accent);
+    color: white;
+}
+
+.ver-piezas-btn:active {
+    transform: scale(0.95);
+}
+
+/* ==========================================
+   CATÁLOGO DE PRODUCTOS 
+   ========================================== */
+.productos-section {
+    max-width: 1400px;
+    margin: 5rem auto;
+    padding: 0 5%;
+}
+
+.filtros-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filtro-btn {
+    border: 1px solid rgba(44, 30, 21, 0.1);
+    background: transparent;
+    padding: 10px 20px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: var(--transition-natural);
+}
+
+.filtro-btn:hover, .filtro-btn.activo {
+    background: var(--text-dark);
+    color: white;
+    border-color: var(--text-dark);
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.producto-card {
+    background: var(--bg-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(217, 119, 54, 0.05);
+    transition: var(--transition-natural);
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.producto-img-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background-color: #EEE;
+}
+
+.producto-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-natural);
+}
+
+.producto-card:hover .producto-img {
+    transform: scale(1.05); /* Efecto zoom natural */
+}
+
+.comunidad-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px 14px;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    z-index: 10;
+}
+
+.producto-info {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.producto-autor {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.producto-info h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: var(--text-dark);
+}
+
+.producto-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita a 2 líneas para diseño compacto */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.producto-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.precio {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.add-to-cart-btn {
+    border: none;
+    background: var(--wa-green);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+    transition: var(--transition-natural);
+}
+
+.add-to-cart-btn:hover {
+    background: #1EBE57;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+/* ==========================================
+   PIE DE PÁGINA (FOOTER) 
+   ========================================== */
+.main-footer {
+    background: var(--text-dark);
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 4rem 1rem 3rem 1rem;
+    font-size: 0.95rem;
+}
+
+.main-footer .orgullo {
+    margin-top: 0.5rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* ==========================================
+   ADAPTATIVIDAD (RESPONSIVE DESIGN) 
+   ========================================== */
+@media (max-width: 900px) {
+    .hero-header {
+        aspect-ratio: auto;
+        height: auto;
+        min-height: 400px;
+    }
+    
+    .search-nav-container {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        margin-top: 15rem; /* Ajuste para colocar la búsqueda abajo del arte del banner en móviles */
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
