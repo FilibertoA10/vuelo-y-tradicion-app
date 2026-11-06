@@ -13,7 +13,46 @@
     --shadow-soft: 0 4px 20px rgba(44, 30, 21, 0.05);
     --shadow-hover: 0 12px 30px rgba(44, 30, 21, 0.12);
 }
+/* ==========================================
+   BARRA DE NAVEGACIÓN
+   ========================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fcf8f2; /* Color hueso para combinar con el fondo */
+    padding: 15px 50px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
+.navbar .logo h1 {
+    font-size: 1.8rem;
+    color: #4a2c11; /* Un café oscuro elegante */
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a2c11;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #d35400; /* Terracota/naranja al pasar el ratón */
+}
 * {
     margin: 0;
     padding: 0;
@@ -346,10 +385,10 @@ body {
     background-color: #EEE;
 }
 
-.producto-img {
+.producto-img-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: var(--transition-natural);
 }
 
@@ -439,20 +478,21 @@ body {
 }
 
 /* ==========================================
-   PIE DE PÁGINA (FOOTER) 
+   PIE DE PÁGINA (FOOTER)
    ========================================== */
 .main-footer {
-    background: var(--text-dark);
-    color: rgba(255, 255, 255, 0.8);
+    background-color: #4a2c11; /* Mismo café oscuro de tu logo */
+    color: #fcf8f2;
     text-align: center;
-    padding: 4rem 1rem 3rem 1rem;
-    font-size: 0.95rem;
+    padding: 40px 20px;
+    margin-top: 60px;
+    border-top: 4px solid #d35400; /* Línea terracota para separar */
 }
 
-.main-footer .orgullo {
-    margin-top: 0.5rem;
-    color: var(--accent);
-    font-weight: 600;
+.main-footer p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
 /* ==========================================
@@ -474,4 +514,5 @@ body {
         flex-direction: column;
         align-items: stretch;
     }
+  
 }

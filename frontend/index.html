@@ -8,7 +8,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+<!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Vuelo y Tradición</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#catalogo">Artesanías</a></li>
+            <li><a href="#equipo">El Equipo</a></li>
+        </ul>
+    </nav>
     <!-- CABECERA PRINCIPAL (BANNER Y BÚSQUEDA) -->
     <header class="hero-header">
         <!-- El banner image_5.png se renderiza aquí de fondo vía CSS -->
@@ -38,11 +48,11 @@
     </header>
 
 <!-- DIRECTORIO DE CREADORES (El Equipo de Desarrollo) -->
-    <section class="artesanos-section">
+    <section id="equipo" class="artesanos-section">
         <div class="section-header">
             <span class="section-subtitle">Conoce a los creadores</span>
             <h2>El Equipo Detrás del Código</h2>
-            <p>Somos un grupo de jóvenes ingenieros orgullosamente veracruzanos, firmemente comprometidos con la promoción de la cultura Totonaca. Desarrollamos esta plataforma para empoderar a nuestros comerciantes locales y conectar el arte de nuestros artesanos con el mundo digital.</p>
+            <p>Somos un grupo de estudiantes de Ingenieria En Tecnologias Computacionales orgullosamente veracruzanos, firmemente comprometidos con la promoción de la cultura Totonaca. Desarrollamos esta plataforma para empoderar a nuestros comerciantes locales y conectar el arte de nuestros artesanos con el mundo digital.</p>
         </div>
         
         <div class="artesanos-carousel">
@@ -54,7 +64,7 @@
                 <h3>Ing. Filiberto A. Domínguez</h3>
                 <p class="especialidad" style="color: var(--accent); font-weight: 800; font-size: 1rem;">Líder de Desarrollo y Arquitecto Web</p>
                 <p class="comunidad" style="font-size: 0.9rem; line-height: 1.4; margin-top: 10px;">La mente maestra a cargo de la programación, infraestructura y dirección del proyecto. Apasionado por crear código limpio y soluciones tecnológicas de alto impacto social.</p>
-                <p class="comunidad" style="margin-top: 15px; font-weight: bold;">📍 Universidad Veracruzana</p>
+                <p class="comunidad" style="margin-top: 15px; font-weight: bold;">📍 Universidad Veracruzana, Papantla de Olarte</p>
             </div>
             
             <!-- Creador 2: Giovanni -->
@@ -65,19 +75,19 @@
                 <h3>Ing. Giovanni Sosa Flores</h3>
                 <p class="especialidad" style="font-weight: 600;">Ingeniero Frontend e Interfaz</p>
                 <p class="comunidad" style="font-size: 0.9rem; line-height: 1.4; margin-top: 10px;">Pieza clave en el diseño visual y la experiencia de usuario, asegurando que la plataforma sea intuitiva, moderna y accesible para todos.</p>
-                <p class="comunidad" style="margin-top: 15px; font-weight: bold;">📍 Universidad Veracruzana</p>
+                <p class="comunidad" style="margin-top: 15px; font-weight: bold;">📍 Universidad Veracruzana, Poza Rica</p>
             </div>
 
             <!-- Creador 3: Joseph -->
             <div class="artesano-card">
                 <div class="artesano-img-wrapper">
                     <!-- Si aún no tienes la foto, mostrará el borde vacío hasta que agregues "joseph.jpg" -->
-                    <img src="joseph.jpg" alt="Ing. Joseph Bastar" class="artesano-img">
+                    <img src="joseph.jpeg" alt="Ing. Joseph Bastar" class="artesano-img">
                 </div>
                 <h3>Ing. Joseph Bastar Cano</h3>
                 <p class="especialidad" style="font-weight: 600;">Ingeniero Backend y Base de Datos</p>
                 <p class="comunidad" style="font-size: 0.9rem; line-height: 1.4; margin-top: 10px;">Encargado de la lógica interna, estructuración de datos y el flujo del sistema para que cada pedido funcione a la perfección.</p>
-                <p class="comunidad" style="margin-top: 15px; font-weight: bold;">📍 Universidad Veracruzana</p>
+                <p class="comunidad" style="margin-top: 15px; font-weight: bold;">📍 Universidad Veracruzana, Papantla de Olarte</p>
             </div>
         </div>
     </section>
@@ -104,14 +114,14 @@
             <article class="producto-card">
                 <div class="producto-img-container">
                     <span class="comunidad-tag">Papantla</span>
-                    <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&q=80&w=600" alt="Blusa Bordada Vainilla" class="producto-img">
+                    <img src="mural.jpg" alt="Mural totonaco">
                 </div>
                 <div class="producto-info">
                     <span class="producto-autor">Por María García</span>
-                    <h3>Blusa Bordada Vainilla</h3>
-                    <p class="producto-desc">Algodón ligero bordado a mano con motivos tradicionales del Totonacapan.</p>
+                    <h3>Mural totonaco</h3>
+                    <p class="producto-desc">Hermosa pintura totonaca.</p>
                     <div class="producto-footer">
-                        <span class="precio">$850.00 MXN</span>
+                        <span class="precio">$500.00 MXN</span>
                         <button class="add-to-cart-btn" aria-label="Añadir Blusa al pedido">
                             Pedir por WhatsApp
                         </button>
@@ -141,15 +151,15 @@
             <!-- Producto 3 -->
             <article class="producto-card">
                 <div class="producto-img-container">
-                    <span class="comunidad-tag">Chumatlán</span>
-                    <img src="https://images.unsplash.com/photo-1590736969955-71cb54857539?auto=format&fit=crop&q=80&w=600" alt="Sombrero de Palma Fina" class="producto-img">
+                    <span class="comunidad-tag">Papantla, el chote</span>
+                    <img src="vestido.jpg" alt="Vestido totonaco tradicional">
                 </div>
                 <div class="producto-info">
                     <span class="producto-autor">Por Doña Carmen</span>
-                    <h3>Sombrero de Palma Fina</h3>
-                    <p class="producto-desc">Tejido apretado e ideal para el sol, elaborado con palma silvestre recolectada.</p>
+                    <h3>Vestido elegante totonaco</h3>
+                    <p class="producto-desc">Tejido apretado e ideal para el sol, elaborado con la mas alta calidad de textiles.</p>
                     <div class="producto-footer">
-                        <span class="precio">$310.00 MXN</span>
+                        <span class="precio">$320.00 MXN</span>
                         <button class="add-to-cart-btn" aria-label="Añadir Sombrero al pedido">
                             Pedir por WhatsApp
                         </button>
@@ -160,89 +170,15 @@
     </section>
 
     <!-- Footer Simple y Cultural -->
+  
+    <!-- PIE DE PÁGINA (FOOTER) -->
     <footer class="main-footer">
-        <p>© 2026 Vuelo y Tradición. Comercio justo y directo para el Totonacapan.</p>
-        <p class="orgullo">Orgullosamente de Papantla, Veracruz 🇲🇽</p>
+        <div class="footer-content">
+            <p>&copy; 2026 Vuelo y Tradición. Comercio justo y directo para el Totonacapan.</p>
+            <p>Orgullosamente de Papantla, Veracruz 🇲🇽</p>
+            <p>Desarrollado por el Ing. Filiberto Domínguez, Ing. Giovanni Sosa e Ing. Joseph Bastar.</p>
+        </div>
     </footer>
-
+<script src="js/app.js"></script>
 </body>
-</html>// js/app.js
-document.addEventListener('DOMContentLoaded', () => {
-    // Estado del carrito
-    let carrito = [];
-    const numeroGeneralWhatsApp = "5217841234567"; // Reemplaza con tu número de Papantla/prueba
-
-    // Elementos del DOM
-    const botonesAgregar = document.querySelectorAll('.add-to-cart-btn');
-    const badgeCarrito = document.querySelector('.cart-badge');
-    const botonCarrito = document.getElementById('cart-btn');
-
-    // 1. Lógica para agregar productos al pedido
-    botonesAgregar.forEach(boton => {
-        boton.addEventListener('click', (e) => {
-            const tarjeta = e.target.closest('.producto-card');
-            const titulo = tarjeta.querySelector('h3').innerText;
-            const precioTexto = tarjeta.querySelector('.precio').innerText;
-            const artesano = tarjeta.querySelector('.producto-autor').innerText;
-            
-            // Limpiar el precio para cálculos (quitar $ y MXN)
-            const precio = parseFloat(precioTexto.replace(/[^0-9.-]+/g, ""));
-
-            // Agregar al array del carrito
-            carrito.push({
-                producto: titulo,
-                precio: precio,
-                artesano: artesano
-            });
-
-            // Actualizar UI
-            badgeCarrito.innerText = carrito.length;
-            animarBotonCarrito();
-            
-            // Feedback visual rápido (estilo Emil Kowalski)
-            const textoOriginal = boton.innerText;
-            boton.innerText = "¡Añadido!";
-            boton.style.backgroundColor = "#1EBE57";
-            
-            setTimeout(() => {
-                boton.innerText = textoOriginal;
-                boton.style.backgroundColor = ""; // Regresa al color original
-            }, 800);
-        });
-    });
-
-    // 2. Animación sutil de resorte al actualizar el carrito
-    function animarBotonCarrito() {
-        botonCarrito.style.transform = 'scale(1.1)';
-        setTimeout(() => {
-            botonCarrito.style.transform = 'scale(1)';
-        }, 150);
-    }
-
-    // 3. Procesar el pedido hacia WhatsApp
-    botonCarrito.addEventListener('click', () => {
-        if (carrito.length === 0) {
-            alert("Tu pedido está vacío. Explora nuestra galería de artesanías.");
-            return;
-        }
-
-        // Construir el mensaje
-        let mensaje = "Hola Vuelo y Tradición. Me interesa realizar el siguiente pedido de comercio justo:%0A%0A";
-        let total = 0;
-
-        carrito.forEach((item, index) => {
-            mensaje += `${index + 1}. ${item.producto} (${item.artesano}) - $${item.precio}%0A`;
-            total += item.precio;
-        });
-
-        mensaje += `%0A*Total estimado: $${total} MXN*%0A%0A¿Podrían indicarme los pasos para confirmar?`;
-
-        // Abrir WhatsApp en una nueva pestaña
-        const urlWhatsApp = `https://wa.me/${numeroGeneralWhatsApp}?text=${mensaje}`;
-        window.open(urlWhatsApp, '_blank');
-        
-        // Opcional: Vaciar carrito después de enviar
-        // carrito = [];
-        // badgeCarrito.innerText = "0";
-    });
-});
+</html>
