@@ -516,3 +516,21 @@ body {
     }
   
 }
+/* 1. Definimos la ruta del movimiento */
+@keyframes vuelo-suave {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(4deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* 1. Definimos el movimiento del fondo */
+@keyframes vuelo-fondo {
+    0% { background-position: center 0px; }
+    50% { background-position: center 20px; } /* Desplaza el fondo 20px hacia abajo suavemente */
+    100% { background-position: center 0px; }
+}
+
+/* 2. Clase para encender el efecto */
+.fondo-animado {
+    animation: vuelo-fondo 6s ease-in-out infinite;
+}
